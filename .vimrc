@@ -7,6 +7,9 @@
 "
 ""=========================================================================
 
+colorscheme solarized
+set background=dark
+
 set nocompatible " 关闭 vi 兼容模式
 syntax on " 自动语法高亮
 set number " 显示行号
@@ -558,10 +561,25 @@ set t_vb= " 置空错误铃声的终端代码
 "
 set pastetoggle=<F2>
 
+inoremap jk <esc>
 let mapleader=","
-vnoremap <Leader>y "+y
-inoremap jj <ESC>
+" vnoremap <Leader>y "+y
 
-nnoremap <Leader>q :q<CR>
-nnoremap <Leader>wq :wq<CR>
+nnoremap <Leader>q :wq<CR>
+nnoremap <Leader>nq :q!<CR>
+nnoremap <Leader>b db
+nnoremap <Leader>w dw
+
 set smartindent
+
+inoremap <C-a> <Home>
+inoremap <C-e> <End>
+
+inoremap <C-T> <C-X><C-F>
+
+
+
+" plugin is installed since vim 7.3, for python auto prompt
+" key is ctrl-x, ctrl-o
+filetype plugin on             
+autocmd FileType python set omnifunc=pythoncomplete#Complete
