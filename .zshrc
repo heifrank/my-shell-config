@@ -85,6 +85,7 @@ source $ZSH/oh-my-zsh.sh
 # alias dev="ssh worker@10.103.16.223"
 alias ls="gls --color=auto"
 alias ll="gls --color=auto -al"
+alias vi="vim"
 
 JAVA_HOME=`/usr/libexec/java_home`
 export JAVA_HOME
@@ -109,3 +110,4 @@ DEFAULT_USER=heifrank
 # eval $(docker-machine env default)
 
 
+alias awk="gawk"
