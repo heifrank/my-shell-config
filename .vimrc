@@ -10,6 +10,12 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'rdnetto/YCM-Generator'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'majutsushi/tagbar'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'rking/ag.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'jistr/vim-nerdtree-tabs'
 call vundle#end()               " required
 filetype plugin indent on       " required
 
@@ -36,15 +42,15 @@ set ruler                       " 打开状态栏标尺
 set incsearch                   " 输入搜索内容时就显示搜索结果
 set hlsearch                    " 搜索时高亮显示被找到的文本
 set nowrapscan                  " 禁止在搜索到文件两端时重新搜索
+set ignorecase
 
 " folding
-set foldenable
-set foldmethod=indent
-nnoremap <space> zA
+"set foldenable
+"set foldmethod=indent
+"nnoremap <space> zA
+"set foldlevelstart=0
 
 " movement
-" nnoremap j gj                   " move vertically by visual line, this feature leads to very low speed when enter j
-" nnoremap k gk
 inoremap <C-a> <Home>
 inoremap <C-e> <End>
 
@@ -56,8 +62,12 @@ vnoremap <Leader>y "+y
 set pastetoggle=<F2>
 
 " YCM plugin
-let g:ycm_global_ycm_extra_conf = '~/YouCompleteMe/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
 let g:ycm_filetype_whitelist={'cpp':1, 'python':1, 'go': 1, 'php':1, 'java':1}
+let g:ycm_confirm_extra_conf = 0
+nnoremap <Leader>gd :YcmCompleter GoToDefinition<CR>
+nnoremap <Leader>gi :YcmCompleter GoToInclude<CR>
+nnoremap <Leader>gs :YcmCompleter GoToDeclaration<CR>
 
 " easy motion plugin
 let g:EasyMotion_smartcase = 1
@@ -67,7 +77,39 @@ map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 
 " NerdTree plugin
-map <F3> :NERDTreeToggle<CR>
+map <F3> :NERDTreeTabsToggle<CR>
+
+" CtrlP plugin
+let g:ctrlp_match_window = 'bottom,order:ttb'
+let g:ctrlp_switch_buffer = 0
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_custom_ignore = '\vbuild/|dist/|venv/|target/|\.(o|swp|pyc|egg)$'
+let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+
+" Tagbar plugin
+nmap <F8> :TagbarToggle<CR>
+
+" Ag plugin
+
+" airline plugin
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline_theme='papercolor'
+let g:airline#extensions#default#layout = [['a', 'b', 'c'], ['y', 'z', 'error', 'warning']]
+let g:airline_skip_empty_sections = 1
+let g:airline#extensions#tabline#show_close_button = 0
+set laststatus=2
+
+"Toggle relative numbering, and set to absolute on loss of focus or insert mode
+set rnu
+"function! ToggleRelativeOn()
+"    set rnu!
+"    set nu
+"endfunction
+"autocmd FocusLost * call ToggleRelativeOn()
+"autocmd FocusGained * call ToggleRelativeOn()
+"autocmd InsertEnter * call ToggleRelativeOn()
+"autocmd InsertLeave * call ToggleRelativeOn()
 
 " templates
 autocmd BufNewFile *.cc,*.h,*.sh,*.java,*.py,*.go exec ":call SetTitle()"

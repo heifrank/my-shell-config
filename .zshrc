@@ -5,7 +5,7 @@ export ZSH=/Users/heifrank/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="agnoster"
+ZSH_THEME="bira"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -83,16 +83,10 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # alias dev="ssh worker@10.103.16.223"
-alias ls="gls --color=auto"
-alias ll="gls --color=auto -al"
-alias vi="vim"
 
 JAVA_HOME=`/usr/libexec/java_home`
 export JAVA_HOME
 export PATH=/opt/libs/apache-maven-3.3.9/bin:$PATH
-
-# export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
-
 export HADOOP_PREFIX="/Users/heifrank/Downloads/hadoop-2.7.2"
 export PYTHONPATH=/Users/heifrank/songyang-install/lib/python2.7/site-packages/:$PYTHONPATH
 export PATH=/Users/heifrank/songyang-install/bin:$PATH
@@ -109,5 +103,8 @@ vman() {
 DEFAULT_USER=heifrank
 # eval $(docker-machine env default)
 
-
+# alias
+alias ls="gls --color=auto"
+alias ll="gls --color=auto -al"
+alias vi="vim"
 alias awk="gawk"
