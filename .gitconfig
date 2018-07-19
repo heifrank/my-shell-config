@@ -1,0 +1,23 @@
+[core]
+	excludesfile = /Users/heifrank/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[user]
+	name = Yang Song
+	email = heifrank27@gmail.com
+[push]
+	default = matching
+
+[alias]
+	st = status
+	ci = commit
+	co = checkout
+	br = branch
+	unstage = reset HEAD --
+	last = log -1 HEAD
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    tg = tag --format '%(color:red)%(refname:strip=2)%(color:reset)  %(contents:subject) %(color:green)(%(*authordate:relative))%(color:reset) %(color:bold blue)<%(*authorname)>%(color:reset)' --sort '*authordate'

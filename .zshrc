@@ -84,12 +84,15 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # alias dev="ssh worker@10.103.16.223"
 
+export PATH=/Users/heifrank/Library/Python/2.7/bin:$PATH
+
+export POWERLINE_CONFIG_COMMAND=/Users/heifrank/Library/Python/2.7/bin/powerline-config 
+#source /Users/heifrank/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
+
 JAVA_HOME=`/usr/libexec/java_home`
 export JAVA_HOME
-export PATH=/opt/libs/apache-maven-3.3.9/bin:$PATH
-export HADOOP_PREFIX="/Users/heifrank/Downloads/hadoop-2.7.2"
-export PYTHONPATH=/Users/heifrank/songyang-install/lib/python2.7/site-packages/:$PYTHONPATH
-export PATH=/Users/heifrank/songyang-install/bin:$PATH
+#export HADOOP_PREFIX="/Users/heifrank/Downloads/hadoop-2.7.2"
+#export PYTHONPATH=/Users/heifrank/songyang-install/lib/python2.7/site-packages/:$PYTHONPATH
 
 bindkey '^U' backward-kill-line
 vman() {
@@ -104,7 +107,24 @@ DEFAULT_USER=heifrank
 # eval $(docker-machine env default)
 
 # alias
-alias ls="gls --color=auto"
-alias ll="gls --color=auto -al"
+alias ls="ls -G"
+alias ll="ls -G -al"
 alias vi="vim"
-alias awk="gawk"
+alias gff="git flow feature"
+alias gfh="git flow hotfix"
+alias gfr="git flow release"
+alias gf="git flow"
+#alias awk="gawk"
+
+GRADLE_HOME=/Users/heifrank/tools/gradle-3.4.1
+export GRADLE_HOME
+export GOPATH=${HOME}/go
+export LC_ALL='en_US.utf-8'
+export SCALA_HOME='/Users/heifrank/.local/share/scala'
+export PATH=$PATH:${GRADLE_HOME}/bin:/Users/heifrank/.local/bin:${SCALA_HOME}/bin:/Users/heifrank/.local/share/sbt/bin/
+export EDITOR=vim
+
+# virtualenvwrapper config
+export WORKON_HOME='~/.virtualenvs'
+source /usr/local/bin/virtualenvwrapper.sh
+export TERM=xterm-256color
